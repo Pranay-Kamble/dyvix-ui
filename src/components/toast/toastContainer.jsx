@@ -57,6 +57,7 @@ function DyvixToastContainer({
             Class={currentclass}
             duration={duration}
             animation={animation}
+            type={currentType.type}
           />
         );
       })}

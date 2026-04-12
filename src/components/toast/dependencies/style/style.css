@@ -9,23 +9,43 @@
 }
 .dyvix-toast {
   display: flex;
+  flex-direction: column;
+  justify-content: left;
+  text-align: left;
+  gap: 10px;
   width: 20rem;
   min-height: 4.5rem;
   max-height: fit-content;
   height: auto;
-  background-color: #ff3366;
-  border-radius: 2rem;
+  border-radius: 1.5rem;
   align-items: center;
 }
-.dyvix-toast-content {
-  width: 100%;
-  padding: 0 2rem;
-}
 .dyvix-toast-error {
-  background-color: #ff3366;
+  background-color: #fcbec6;
 }
 .dyvix-toast-success {
-  background-color: green;
+  background-color: #a8fcb4;
+}
+.dyvix-toast-title
+{
+  width: 90%;
+}
+.dyvix-toast-content
+{
+  width: 85%;
+}
+.dyvix-toast-icon
+{
+  border: #1df13c 2px solid;
+  border-radius: 50%;
+}
+.toast-error
+{
+  color: #ff3366;
+}
+.toast-success
+{
+  color: #1df13c;
 }
 /* move to positions.css ? */
 .dyvix-top-right {
