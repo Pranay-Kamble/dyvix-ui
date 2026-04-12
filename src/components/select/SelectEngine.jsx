@@ -75,11 +75,10 @@ const SelectEngine = forwardRef(
     }, []);
 
     useEffect(() => {
-      if(activeIndex >= 0 && itemsRef.current[activeIndex]){
-        itemsRef.current[activeIndex].scrollIntoView({block: 'nearest'})
+      if (activeIndex >= 0 && itemsRef.current[activeIndex]) {
+        itemsRef.current[activeIndex].scrollIntoView({ block: 'nearest' });
       }
-    },[activeIndex])
-
+    }, [activeIndex]);
 
     return (
       <>
@@ -100,7 +99,11 @@ const SelectEngine = forwardRef(
                   role="option"
                   ref={(ele) => (itemsRef.current[index] = ele)}
                   key={index}
-                  style={index === activeIndex ? {backgroundColor: '#e0f7fa', cursor: 'pointer'}: {}}
+                  style={
+                    index === activeIndex
+                      ? { backgroundColor: '#e0f7fa', cursor: 'pointer' }
+                      : {}
+                  }
                   onMouseDown={(e) => {
                     e.preventDefault();
                     ChangeValue(element);

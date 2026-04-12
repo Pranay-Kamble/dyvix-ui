@@ -19,8 +19,8 @@ Dyvix UI is built around the following foundations:
       and elements without writing a single javascript code.
 
     . Logic-First Architecture: Dyvix handles your data validation, and data flow.
-    
+
     . Performance & security: We believe in security & performance first doctrine over content and functionality.
-    
+
     . Animated and beautiful by default: Living Interfaces. We believe in an non-static architecture,
       while keeping the option to remove any feature you don't like.

@@ -88,45 +88,43 @@ function DynamicSelect({
     (e) => e.animation.trim().toLowerCase() === animation.trim().toLowerCase()
   );
 
-  function HandleKey(e, controller){
-    if(Select.is_open == false) return 
+  function HandleKey(e, controller) {
+    if (Select.is_open == false) return;
 
-    const {key} = e;
-    const max = Select.elements.length -1;
+    const { key } = e;
+    const max = Select.elements.length - 1;
     const min = -1;
-    const index = Select.activeIndex
+    const index = Select.activeIndex;
 
-
-    if(key === "ArrowUp"){
-      if(index <= min) return
-      controller((prevData)=> ({
+    if (key === 'ArrowUp') {
+      if (index <= min) return;
+      controller((prevData) => ({
         ...prevData,
-        activeIndex: index -1
-      }))
-      e.preventDefault()
+        activeIndex: index - 1
+      }));
+      e.preventDefault();
     }
 
-    if(key === "ArrowDown"){
-      if(index >= max) return
-      controller((prevData)=> ({
+    if (key === 'ArrowDown') {
+      if (index >= max) return;
+      controller((prevData) => ({
         ...prevData,
-        activeIndex: index +1
-      }))
-      e.preventDefault()
+        activeIndex: index + 1
+      }));
+      e.preventDefault();
     }
 
+    if (key === 'Enter') {
+      if (index < 0 || index > max) return;
 
-    if(key === 'Enter'){
-      if(index < 0 || index > max) return
-      
-      selectRef.current.value = Select.elements[index]
-      controller((prevData)=> ({
+      selectRef.current.value = Select.elements[index];
+      controller((prevData) => ({
         ...prevData,
         selected: Select.elements[index],
         is_open: false,
         activeIndex: -1
-      }))
-      e.preventDefault()
+      }));
+      e.preventDefault();
     }
   }
 
