@@ -4,28 +4,94 @@ import Version from "../../../package.json"
 export const CACHETYPE = { CSS: 'css', ANIMATION: 'animation' };
 const VERSION = Version['version'];
 
-export async function cachelayerThree(jsonpath, csspath, type) {
+
+export async function SJCManager(jsonpath, csspath, type, component, utility, jsonKey, jsonclasskey="") {
+  const layerOneResult = null; // plug the actual func
+  if (layerOneResult !== null) return layerOneResult;
+  const layerTwoResult = null; // plug the actual func
+  if (layerTwoResult !== null) return layerTwoResult;
+  const layerThreeResult = await cachelayerThree(jsonpath, csspath, type, 3, component, utility, jsonKey, jsonclasskey);
+  return layerThreeResult;
+}
+
+async function cachelayerThree(jsonpath, csspath, type, layer, component, utility, jsonKey, jsonclasskey) {
   const key = generateCacheKey(3, "Modal", "theme");
-
-  if(!localStorage.getItem(key)) return true;
-
-  let rawJSON = await extractFile(jsonpath);;
+  let JsonArray = null;
   let rawCSS = null;
+  let cssResult = null;
+  let jsonResult = null;
 
-  if (type === CACHETYPE.CSS) {
-    rawCSS = await extractFile(csspath);
+  if(localStorage.getItem(key)) {
+    const cachedData = JSON.parse(localStorage.getItem(key))
+    JsonArray = cachedData.JSON;
+    rawCSS = cachedData.CSS;
   }
-
+  else
+  {
+    const rawJSONText = await extractFile(jsonpath);
+    JsonArray = JSON.parse(rawJSONText);
+    if (type === CACHETYPE.CSS) {
+      rawCSS = await extractFile(csspath);
+    }
+  }  
+  jsonResult = JsonArray.find(e => e[utility] === jsonKey);  
+  
   let value = {
     ...(rawCSS !== null && {"CSS": rawCSS}),
-    ...(rawJSON !== null && {"JSON": JSON.stringify(rawJSON)}),
+    ...(JsonArray !== null && {"JSON": JsonArray}),
   };
 
   localStorage.setItem(key, JSON.stringify(value));
 
-  return true;
+  if(!jsonResult)
+  {
+    return null;
+  }
+
+  cssResult = extractCSSClass(jsonResult[jsonclasskey], null, rawCSS)
+
+  let result = {
+    ...(cssResult !== null && {"CSS": cssResult}),
+    ...(jsonResult !== null && {"JSON": jsonResult}),
+  }
+
+  return result;
+}
+async function cachelayerTwo(jsonpath, csspath, type, layer, component, utility, jsonKey, jsonclasskey) {
+ const key = generateCacheKey(2, component, utility);
+
+  if(localStorage.getItem(key)){
+    return JSON.parse(localStorage.getItem(key));
+  }
+
+  const rawJSONText = await extractFile(jsonpath); 
+
+  const JsonArray = JSON.parse(rawJSONText);
+  const jsonResult = JsonArray.find(e => e[utility] === jsonKey);
+  let cssResult = null;
+
+  if (type === CACHETYPE.CSS) {
+    cssResult = extractCSSClass(jsonResult[jsonclasskey], csspath)
+  }
+
+  let value = {
+    ...(cssResult !== null && {"CSS": cssResult}),
+    ...(jsonResult !== null && {"JSON": JSON.stringify(jsonResult)}),
+  };
+
+  localStorage.setItem(key, JSON.stringify(value));
+
+  return JSON.stringify(value);
 }
 
+async function cachelayerOne(type, classname = 'None', jsonpath) {
+  extractCSSClass(
+    'dyvix-modal-ember',
+    '../../components/modal/dependencies/style/themes.css'
+  );
+  if (type === CACHETYPE.CSS) {
+  }
+}
 
 async function extractFile(path)
 {
@@ -44,28 +110,33 @@ function generateCacheKey(layer, component, utility) {
   return key;
 }
 
-export function cachelayerOne(type, classname = 'None', jsonpath) {
-  extractCSSClass(
-    'dyvix-modal-ember',
-    '../../components/modal/dependencies/style/themes.css'
-  );
-  if (type === CACHETYPE.CSS) {
-  }
-}
 
-async function extractCSSClass(classname, Csspath) {
-  try {
-    const module = await import(/* @vite-ignore */ `${Csspath}?raw`);
-    const rawCSS = module.default || module;
-    const lines = rawCSS.replace(/\s+/g, ' ').trim().split('}');
-    let block = '';
-    const matches = lines
-      .filter((val) => val.trim().includes(classname))
-      .map((block) => block.trim() + '}');
-    block = matches.join('\n\n');
-
-    return block;
-  } catch (error) {
-    console.log('DyvixUI Sys error');
+async function extractCSSClass(classname, Csspath=null, cssblock=null) {
+  let rawCSS = null;
+  if(Csspath !== null)
+  {
+    try {
+      const module = await import(/* @vite-ignore */ `${Csspath}?raw`);
+      rawCSS = module.default || module;
+    } catch (error) {
+      console.log('DyvixUI Sys error');
+    }
   }
+  else if (cssblock !==null)
+  {
+    rawCSS = cssblock
+  }
+  else
+  {
+    return null;
+  }
+
+  const lines = rawCSS.replace(/\s+/g, ' ').trim().split('}');
+  let block = '';
+  const matches = lines
+    .filter((val) => val.trim().includes(classname))
+    .map((block) => block.trim() + '}');
+  block = matches.join('\n\n');
+
+  return block;
 }
