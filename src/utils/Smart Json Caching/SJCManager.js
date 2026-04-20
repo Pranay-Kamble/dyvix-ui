@@ -45,7 +45,7 @@ async function cachelayerThree(
   jsonKey,
   jsonclasskey
 ) {
-  const key = generateCacheKey(3, 'Modal', 'theme');
+  const key = generateCacheKey(3, component, utility);
   let JsonArray = null;
   let rawCSS = null;
   let cssResult = null;

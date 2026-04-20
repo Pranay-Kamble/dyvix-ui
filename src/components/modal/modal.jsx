@@ -115,13 +115,7 @@ function Modal({
   const currentTheme = configs["theme"];
   const animationQuery =
     animation === '!/' ? currentTheme['default-animation'] : animation;
-  const currentAnimation = animation
-    ? animationsData.find(
-        (e) =>
-          e.animation.trim().toLowerCase() ===
-          animationQuery.trim().toLowerCase()
-      )
-    : null;
+  const currentAnimation = configs["animation"];
   const currentPreset = presetData.find(
     (e) => e.preset.trim().toLowerCase() === preset.trim().toLowerCase()
   );
@@ -148,7 +142,7 @@ function Modal({
   const dynamicHeight = isMobile ? `min(${idealSize}, 95vh)` : idealSize;
   const dynamicWidth = `min(${idealSize}, 95vw, 95vh)`;
   const isCentered = fields?.length <= 5;
-  const dynamicMargin = isCentered ? '15vh auto' : '1.5rem auto';
+  const dynamicMargin = isCentered ? '12vh auto' : '1.5rem auto';
   const modalStyles = {
     height: dynamicHeight,
     width: dynamicWidth,
