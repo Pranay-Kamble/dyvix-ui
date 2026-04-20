@@ -1,10 +1,4 @@
-import {
-  validType,
-  validAnimations,
-  eleData,
-  validPreset,
-  validRules
-} from './modal';
+import { validType, eleData, validPreset, validRules } from './modal';
 import presetData from './dependencies/presets.json';
 import {
   EvaluateFailure,
@@ -15,24 +9,24 @@ import { isValidRegex } from './dependencies/validator/validators';
 import { ValidatAndLoadJSON } from '../../utils/Smart Json Caching/SJCManager';
 
 const CacheMapping = {
-  "theme": {
-    "jsonpath": "../../components/modal/dependencies/themes.json",
-    "csspath": "../../components/modal/dependencies/style/themes.css",
+  theme: {
+    jsonpath: '../../components/modal/dependencies/themes.json',
+    csspath: '../../components/modal/dependencies/style/themes.css'
   },
-  "animation": {
-    "jsonpath": "../../components/animations.json",
-    "csspath": null,
+  animation: {
+    jsonpath: '../../components/animations.json',
+    csspath: null
   },
-  "presets": {
-    "jsonpath": "../../.components/modal/dependencies/presets.json",
-    "csspath": null,
+  presets: {
+    jsonpath: '../../.components/modal/dependencies/presets.json',
+    csspath: null
   },
-  "types": {
-    "jsonpath": "../../components/modal/dependencies/types.json",
-    "csspath": null,
-  },
-}
-const component = "Modal"
+  types: {
+    jsonpath: '../../components/modal/dependencies/types.json',
+    csspath: null
+  }
+};
+const component = 'Modal';
 const defaultElement = {
   type: '!/',
   placeholder: ['!/'],
@@ -54,8 +48,6 @@ const supportedTypes = [
   'tel',
   'checkbox'
 ];
-
-
 
 export async function SerializeData(
   title,
@@ -124,15 +116,17 @@ export async function ValidateInput(
   }
 
   const [isAnimation, isTheme] = await Promise.all([
-    ValidatAndLoadJSON(CacheMapping, animation, callback, "animation", component),
-    ValidatAndLoadJSON(CacheMapping, theme, callback, "theme", component)
+    ValidatAndLoadJSON(
+      CacheMapping,
+      animation,
+      callback,
+      'animation',
+      component
+    ),
+    ValidatAndLoadJSON(CacheMapping, theme, callback, 'theme', component)
   ]);
 
-  if (
-    animation !== '!/' &&
-    !isAnimation &&
-    allowsNull(animation)
-  ) {
+  if (animation !== '!/' && !isAnimation && allowsNull(animation)) {
     return {
       status: GaurdStatus.Error,
       error: 'Please provide a vaild animation.'

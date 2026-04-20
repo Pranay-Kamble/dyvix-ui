@@ -1,6 +1,5 @@
 import elementsData from './dependencies/elements.json';
 import DynamicSelect from '../select/SelectCompiler';
-import animationsData from '../animations.json';
 import validationData from './dependencies/validator/validators.json';
 import typesData from './dependencies/types.json';
 import presetData from './dependencies/presets.json';
@@ -10,14 +9,16 @@ import {
   ExecuteValidator,
   ExecuteRegex
 } from './dependencies/validator/validators';
-import { SJCManager, CACHETYPE } from '../../utils/Smart Json Caching/SJCManager';
+import {
+  SJCManager,
+  CACHETYPE
+} from '../../utils/Smart Json Caching/SJCManager';
 import React from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SerializeData } from './InputValidation';
 
 export const validType = typesData.map((e) => e.type);
-export const validAnimations = animationsData.map((e) => e.animation);
 export const validPreset = presetData.map((e) => e.preset);
 export const validRules = validationData.map((e) => e.preset);
 
@@ -55,7 +56,7 @@ function Modal({
   const [visibility, SetVisibility] = React.useState(true);
   const [status, SetStatus] = React.useState('entering');
   const [configs, SetConfig] = React.useState({});
-  const [fields, SetFields] =  React.useState(null);
+  const [fields, SetFields] = React.useState(null);
   const modalRef = React.useRef(null);
   function handleInputChange(name, value) {
     const validation = handleValidation();
@@ -112,10 +113,10 @@ function Modal({
   const currentType = typesData.find(
     (e) => e.type.trim().toLowerCase() === type.trim().toLowerCase()
   );
-  const currentTheme = configs["theme"];
+  const currentTheme = configs['theme'];
   const animationQuery =
     animation === '!/' ? currentTheme['default-animation'] : animation;
-  const currentAnimation = configs["animation"];
+  const currentAnimation = configs['animation']; // add default animation for this new update
   const currentPreset = presetData.find(
     (e) => e.preset.trim().toLowerCase() === preset.trim().toLowerCase()
   );
@@ -152,8 +153,7 @@ function Modal({
   if (currentPreset) {
     title = title !== '!/' ? title : currentPreset['default-title'];
   }
-  console.log(configs)
-  React.useEffect(()=> {    
+  React.useEffect(() => {
     async function GetFields() {
       const data = await SerializeData(
         title,
@@ -168,12 +168,10 @@ function Modal({
         SetConfig
       );
 
-      console.log(data)
       SetFields(data);
-    }    
-    
-    GetFields();
+    }
 
+    GetFields();
   }, [theme]);
 
   React.useEffect(() => {
