@@ -5,6 +5,11 @@
     "default-animation": "bubble"
   },
   {
+    "theme": "Industrial",
+    "class": "dyvix-button-industrial",
+    "default-animation": "fade"
+  },
+  {
     "theme": "Neon",
     "class": "dyvix-button-neon",
     "default-animation": "pulse"
