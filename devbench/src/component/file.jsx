@@ -4,7 +4,7 @@ export function FileTest() {
   return (
     <>
       <DyvixFile
-        onClick={() => console.log('clicked')}
+        onUpload={(data) => console.log(data)}
         animation={'bubble'}
         theme={DYVIX_MODAL_THEME.MIDNIGHT}
       >

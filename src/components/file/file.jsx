@@ -5,12 +5,16 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Version from '../../../package.json';
 
-function DyvixFile({ label = 'Upload File' }) {
+function DyvixFile({ label = 'Upload File', onUpload }) {
   const [file, Setfile] = React.useState(null);
   function handleFileChange(e) {
     if(e.target.files && e.target.files[0])
     {
       Setfile(e.target.files[0].name);
+      if(typeof onUpload === 'function')
+      {
+        onUpload(e.target.files[0]);
+      }
     }
   }
 
