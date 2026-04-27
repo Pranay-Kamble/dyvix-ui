@@ -14,6 +14,7 @@ function DyvixFile({
   background,
   color,
   multiple = false,
+  accept = "*/*",
   onUpload,
   style,
   ...rest
@@ -102,6 +103,7 @@ function DyvixFile({
           type="file"
           className="dyvix-file-hidden"
           id="file-upload"
+          accept={accept}
           onChange={(e) => handleFileChange(e)}
           {...(multiple && { multiple })}
         />

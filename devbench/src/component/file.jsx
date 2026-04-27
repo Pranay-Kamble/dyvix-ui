@@ -8,6 +8,7 @@ export function FileTest() {
         multiple={true}
         theme={DYVIX_MODAL_THEME.FROST}
         animation={"fade"}
+        accept={".jpg, .jpeg, .png"}
       >
         Submit
       </DyvixFile>
