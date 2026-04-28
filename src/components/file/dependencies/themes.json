@@ -43,5 +43,10 @@
     "theme": "Ocean",
     "class": "dyvix-file-ocean",
     "default-animation": "flip"
+  },
+  {
+    "theme": "Forest",
+    "class": "dyvix-file-forest",
+    "default-animation": "glide"
   }
 ]
