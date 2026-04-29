@@ -18,5 +18,40 @@
     "theme": "Frost",
     "class": "dyvix-file-frost",
     "default-animation": "unfold"
+  },
+  {
+    "theme": "Blade",
+    "class": "dyvix-file-blade",
+    "default-animation": "zoom"
+  },
+  {
+    "theme": "Neon",
+    "class": "dyvix-file-neon",
+    "default-animation": "pulse"
+  },
+  {
+    "theme": "Aurora",
+    "class": "dyvix-file-aurora",
+    "default-animation": "aurora"
+  },
+  {
+    "theme": "Sunset",
+    "class": "dyvix-file-sunset",
+    "default-animation": "drop"
+  },
+  {
+    "theme": "Ocean",
+    "class": "dyvix-file-ocean",
+    "default-animation": "flip"
+  },
+  {
+    "theme": "Forest",
+    "class": "dyvix-file-forest",
+    "default-animation": "glide"
+  },
+  {
+    "theme": "Midnight",
+    "class": "dyvix-file-midnight",
+    "default-animation": "drift"
   }
 ]
