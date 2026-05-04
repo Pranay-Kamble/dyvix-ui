@@ -1,4 +1,4 @@
-import { Modal, DYVIX_MODAL_THEME, DYVIX_GLOBAL_ANIMATION } from 'dyvix-ui';
+import { Modal, DYVIX_GLOBAL_ANIMATION,DYVIX_GLOBAL_THEME  } from 'dyvix-ui';
 import React from 'react';
 export function ModalTest() {
   const testData = Array.from({ length: 9 }, (_, i) => ({
@@ -13,7 +13,7 @@ export function ModalTest() {
       title="Register"
       Id="register-modal"
       className="modalsss"
-      theme={DYVIX_MODAL_THEME.SUNSET}
+      theme={DYVIX_GLOBAL_THEME.FROST}
       //preset={'Register'}
       type="auth"
       elements={[

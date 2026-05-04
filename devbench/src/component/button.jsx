@@ -1,5 +1,5 @@
 import { DyvixButton } from 'dyvix-ui';
-import { DYVIX_MODAL_THEME } from 'dyvix-ui';
+import { DYVIX_GLOBAL_THEME } from 'dyvix-ui';
 export function ButtonTest() {
   return (
     <>
