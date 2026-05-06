@@ -22,7 +22,7 @@ export function ModalTest() {
           placeholder: ['New Password', 'fgfg'],
           validation: 'password',
           id: ['new-password', 'new-passwordx'],
-          name: ['newPassword', 'ddffd'],
+          name: ['newPassword', 'test'],
           amount: 2
         },
         {

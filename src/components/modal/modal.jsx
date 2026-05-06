@@ -65,9 +65,10 @@ function Modal({
   const instanceId = React.useId();
   const modalRef = React.useRef(null);
   function handleInputChange(name, value) {
-    const validation = handleValidation();
     const nextData = { ...data, [name]: value };
     SetData(nextData);
+    const validation = handleValidation(nextData);
+
     if (typeof onChange === 'function') {
       onChange(nextData);
     }
@@ -78,7 +79,7 @@ function Modal({
       onClose();
     }
   }
-  function handleValidation() {
+  function handleValidation(data) {
     const newErrors = {};
     for (const field of fields) {
       if (Array.isArray(field.match)) {
@@ -131,7 +132,7 @@ function Modal({
     SetErrors(newErrors);
   }
   function handleSubmit() {
-    const validation = handleValidation();
+    const validation = handleValidation(data);
 
     if (typeof onSubmit === 'function') {
       onSubmit(data);
