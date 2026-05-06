@@ -133,8 +133,9 @@ function Modal({
   }
   function handleSubmit() {
     const validation = handleValidation(data);
+    const allow = Object.values(errors).every(val => val === null) && Object.keys(errors).length > 0;
 
-    if (typeof onSubmit === 'function') {
+    if (typeof onSubmit === 'function' && allow) {
       onSubmit(data);
     }
   }
