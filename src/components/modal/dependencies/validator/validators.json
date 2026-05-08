@@ -14,5 +14,13 @@
   {
     "preset": "url",
     "validators": ["isURL"]
+  },
+  {
+    "preset": "mandatory",
+    "validators": ["isRequired"]
+  },
+  {
+    "preset": "date",
+    "validators": ["isDate"]
   }
 ]
