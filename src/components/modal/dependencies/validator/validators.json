@@ -18,5 +18,9 @@
   {
     "preset": "mandatory",
     "validators": ["isRequired"]
+  },
+  {
+    "preset": "date",
+    "validators": ["isDate"]
   }
 ]

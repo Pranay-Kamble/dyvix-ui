@@ -69,5 +69,9 @@ const VALIDATORS_REGISTERY = {
   isRequired: (value, options = {}) => ({
     status: value !== null && value !== undefined && String(value).trim().length > 0,
     error: 'This field is required.'
+  }),
+  isDate: (value, options = {}) => ({
+    status: !isNaN(Date.parse(value)),
+    error: 'Please enter a valid date.'
   })
 };

@@ -29,7 +29,7 @@ export function ModalTest() {
         {
           type: 'password',
           placeholder: 'Confirm Password',
-          validation: 'mandatory',
+          validation: 'date',
           id: 'confirm-password',
           name: 'confirmPassword',
           amount: 1,
