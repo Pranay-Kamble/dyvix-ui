@@ -14,3 +14,4 @@ Thanks for everyone who has contributed to Dyvix UI!
 - [@dineshg0pal](https://github.com/dineshg0pal)
 - [@DevBadoory](https://github.com/DevBadoory)
 - [@andoan16](https://github.com/andoan16)
+- [@SlncTrZ](https://github.com/SlncTrZ)
