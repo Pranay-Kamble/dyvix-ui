@@ -91,7 +91,8 @@ function Modal({
                 (f) => f === matchTo
               );
               const matchToName = matchToFields.name[matchToIndex];
-              const matchToPlaceholder = matchToFields.placeholder[matchToIndex];
+              const matchToPlaceholder =
+                matchToFields.placeholder[matchToIndex];
               const sourceValue = data[field.name[i]];
               const targetValue = data[matchToName];
               const serializeLabel = (str) => {
@@ -142,7 +143,9 @@ function Modal({
   }
   function handleSubmit() {
     const validation = handleValidation(data);
-    const allow = Object.values(errors).every(val => val === null) && Object.keys(errors).length > 0;
+    const allow =
+      Object.values(errors).every((val) => val === null) &&
+      Object.keys(errors).length > 0;
 
     if (typeof onSubmit === 'function' && allow) {
       onSubmit(data);

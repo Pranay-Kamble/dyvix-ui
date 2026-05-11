@@ -14,7 +14,7 @@ export function ModalTest() {
       Id="register-modal"
       className="modalsss"
       theme={DYVIX_GLOBAL_THEME.FROST}
-    //  preset={'ResetPassword'}
+      //  preset={'ResetPassword'}
       type="auth"
       elements={[
         {
@@ -32,8 +32,7 @@ export function ModalTest() {
           validation: 'date',
           id: 'confirm-password',
           name: 'confirmPassword',
-          amount: 1,
-          
+          amount: 1
         }
       ]}
       onSubmit={(data) => console.log(data)}

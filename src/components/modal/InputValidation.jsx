@@ -295,15 +295,15 @@ export function validateElements(elements) {
         };
       }
     }
-    if(element.match && element.match !== "!/")
-    {
-      const matchTargets = typeof element.match === 'string' ? [element.match] : element.match;
-      for(const matchId of matchTargets)
-      {
-        if (matchId === "!/") continue;
-        const exist = elements.find(e => Array.isArray(e.id) ? e.id.includes(matchId): e.id === matchId)
-        if(!exist)
-        {
+    if (element.match && element.match !== '!/') {
+      const matchTargets =
+        typeof element.match === 'string' ? [element.match] : element.match;
+      for (const matchId of matchTargets) {
+        if (matchId === '!/') continue;
+        const exist = elements.find((e) =>
+          Array.isArray(e.id) ? e.id.includes(matchId) : e.id === matchId
+        );
+        if (!exist) {
           return {
             status: GaurdStatus.Error,
             error: `'${matchId}' is not a recognized target for matching.`
@@ -334,8 +334,7 @@ export function normalizeElements(elements) {
     id: typeof ele.id === 'string' ? [ele.id] : ele.id,
     validation:
       typeof ele.validation === 'string' ? [ele.validation] : ele.validation,
-    match:
-      typeof ele.match === 'string' ? [ele.match] : ele.match,
+    match: typeof ele.match === 'string' ? [ele.match] : ele.match
   }));
 }
 function checkDuplicates(elements, field) {
