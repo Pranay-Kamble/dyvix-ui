@@ -75,7 +75,7 @@ async function cachelayerThree(
   let jsonResult = null;
   let keys = [key + '_L1', key + '_L2', key + '_L3'];
   const cachedData = await get(keys[2]);
-  
+
   if (cachedData) {
     JsonArray = cachedData.JSON;
     rawCSS = cachedData.CSS;

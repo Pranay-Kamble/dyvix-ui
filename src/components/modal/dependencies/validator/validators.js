@@ -67,7 +67,8 @@ const VALIDATORS_REGISTERY = {
     error: 'Please enter a valid URL (e.g., https://example.com).'
   }),
   isRequired: (value, options = {}) => ({
-    status: value !== null && value !== undefined && String(value).trim().length > 0,
+    status:
+      value !== null && value !== undefined && String(value).trim().length > 0,
     error: 'This field is required.'
   }),
   isDate: (value, options = {}) => ({
