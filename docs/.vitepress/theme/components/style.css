@@ -1,0 +1,34 @@
+.dyvix-playground-wrapper {
+  background: linear-gradient(
+    90deg, 
+    rgba(2, 0, 36, 1) 0%, 
+    rgba(46, 35, 7, 1) 50%, 
+    rgba(2, 0, 36, 1) 100%
+  );
+  
+  border-radius: 2rem;
+  
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  outline: 4px solid rgba(2, 0, 36, 0.5);
+  
+  box-shadow: 
+    inset 0 0 20px rgba(0, 0, 0, 0.6),
+    0 15px 35px rgba(0, 0, 0, 0.4);
+
+  min-height: 200px;
+  max-height: 1500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  overflow: hidden;
+  position: relative;
+}
+.dyvix-playground-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
