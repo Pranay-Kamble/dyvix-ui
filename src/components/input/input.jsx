@@ -53,6 +53,18 @@ function DyvixInput({
     }
   }
   
+  function handleBlur(e) {
+    if(typeof onBlur === "function")
+    {
+      onBlur(e)
+    }
+  }
+  function handleFocus(e) {
+    if(typeof onFocus === "function")
+    {
+      onFocus(e)
+    }
+  }
   useGSAP(() => {
     if (!inputRef.current || !currentAnimation) return;
 
@@ -65,7 +77,7 @@ function DyvixInput({
 
   return (
     <div className='dyvix-input-wrapper' ref={inputRef} {...rest}>
-      <input {...props}></input>
+      <input {...props} onFocus={(e)=> handleFocus(e)} onBlur={(e)=> handleBlur(e)}></input>
     </div>
   )
 }
