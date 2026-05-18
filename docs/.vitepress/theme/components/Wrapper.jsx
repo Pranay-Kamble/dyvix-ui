@@ -14,6 +14,7 @@ export default function Wrapper({
   const [snippet, setSnippet] = React.useState('');
   const [copied, setCopied] = React.useState(null);
   const [activeConfig, setActive] = React.useState('');
+  const [currentConfig, setConfig] = React.useState({});
   const [amount, setAmount] = React.useState(3);
 
   function handleCopy() {
@@ -22,6 +23,10 @@ export default function Wrapper({
     setTimeout(() => setCopied(null), 2000);
   }
 
+  function handleConfigAddition() {
+    console.log('addded');
+  }
+  console.log(currentConfig);
   React.useEffect(() => {
     let curr = `<${tag}\n`;
     for (const ele of componentConfig) {
@@ -181,11 +186,19 @@ export default function Wrapper({
                                   max={rule.max_val}
                                   min={1}
                                   className="playground-text"
-                                  value={amount}
+                                  value={1}
                                   onChange={(e) => {
-                                    const val = Math.min(Number(e.target.value), rule.max_val);
+                                    const val = Math.min(
+                                      Number(e.target.value),
+                                      rule.max_val
+                                    );
                                     const clamped = Math.max(val, 1);
-                                    setAmount(clamped)}}
+                                    setAmount(clamped);
+                                    setConfig((prev) => ({
+                                      ...prev,
+                                      [rule.rule]: clamped
+                                    }));
+                                  }}
                                 ></input>
                               ) : hasOptions ? (
                                 <div className="dynamic-input-list">
@@ -195,7 +208,22 @@ export default function Wrapper({
                                     <select
                                       key={index}
                                       className="playground-select"
+                                      onChange={(e) => {
+                                        const targetVal = e.target.value;
+
+                                        setConfig((prev) => {
+                                          const currentArray = prev[rule.rule]
+                                            ? prev[rule.rule]
+                                            : [];
+                                          currentArray[index] = targetVal;
+                                          return {
+                                            ...prev,
+                                            [rule.rule]: currentArray
+                                          };
+                                        });
+                                      }}
                                     >
+                                      <option>None</option>
                                       {Object.entries(hasOptions).map(
                                         ([key, value]) => (
                                           <option key={key} value={value}>
@@ -216,6 +244,20 @@ export default function Wrapper({
                                       type="text"
                                       placeholder={`${rule.rule} ${index + 1}`}
                                       className="playground-text"
+                                      onChange={(e) => {
+                                        const targetVal = e.target.value;
+
+                                        setConfig((prev) => {
+                                          const currentArray = prev[rule.rule]
+                                            ? prev[rule.rule]
+                                            : [];
+                                          currentArray[index] = targetVal;
+                                          return {
+                                            ...prev,
+                                            [rule.rule]: currentArray
+                                          };
+                                        });
+                                      }}
                                     />
                                   ))}
                                 </div>
@@ -225,8 +267,14 @@ export default function Wrapper({
                             </div>
                           );
                         })}
+                        <button
+                          className="playground-config-btn"
+                          onClick={() => handleConfigAddition()}
+                        >
+                          Add
+                        </button>
                       </div>,
-                      document.body
+                      document.querySelector('.dyvix-playground-wrapper')
                     )}
                 </>
               );
