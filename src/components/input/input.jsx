@@ -16,7 +16,8 @@ function DyvixInput({
   onBlur,
   style,
   onChange,
-  
+  name,
+  id,
   ...rest
 }) {
   const inputRef = React.useRef(null);
@@ -49,6 +50,8 @@ function DyvixInput({
     className: inputClasses,
     type: currentType?.type,
     ...(placeholder && {placeholder: placeholder}),
+    ...(name && {name: name}),
+    ...(id && {id: id}),
     style: {
       ...(background && { background: background }),
       ...(color && { color: color }),
