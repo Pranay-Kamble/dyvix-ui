@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react';
 import './dependencies/style/style.css';
 import React from 'react';
 import { Validateinput } from './validation';
+import Version from '../../../package.json';
 
 /**
  * @param {Object} props
@@ -29,6 +30,7 @@ function DyvixInput({
   background,
   color,
   animation = 'fade',
+  theme = '!/',
   className = '',
   name,
   id,
@@ -48,7 +50,7 @@ function DyvixInput({
     async function GetFields() {
       const data = await Validateinput(
         animation,
-        '',
+        theme,
         type,
         SetConfig,
         instanceId
@@ -56,12 +58,19 @@ function DyvixInput({
     }
 
     GetFields();
-  }, [type, animation]);
+    return () => {
+      const key = `DYVIX_${Version['version']}_Input_theme_${instanceId}`;
+      const ele = document.getElementById(key);
+      if (ele) ele.remove();
+    };
+  }, [type, animation, theme]);
 
   const currentAnimation = animation ? configs['animation'] : null;
   const currentType = type ? configs['type'] : null;
+  const currentTheme = theme !== '!/' ? configs['theme'] : null;
+
   const inputClasses =
-    `dyvix-input ${currentType?.class ?? ''} ${className}`.trim();
+    `dyvix-input ${currentType?.class ?? ''} ${currentTheme?.class ?? ''} ${className}`.trim();
   const props = {
     className: inputClasses,
     type: currentType?.type,

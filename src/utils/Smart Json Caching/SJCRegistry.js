@@ -7,6 +7,8 @@ import animationsJSON from '../../components/animations.json?raw';
 import fileThemesJSON from '../../components/file/dependencies/themes.json?raw';
 import fileThemesCSS from '../../components/file/dependencies/style/themes.css?raw';
 import inputTypesJSON from '../../components/input/dependencies/types.json?raw';
+import inputThemesJSON from '../../components/input/dependencies/themes.json?raw';
+import inputThemesCSS from '../../components/input/dependencies/style/themes.css?raw';
 
 export const JSON_LIBRARY = {
   '../../components/button/dependencies/themes.json': buttonThemesJSON,
@@ -14,11 +16,13 @@ export const JSON_LIBRARY = {
   '../../components/modal/dependencies/presets.json': modalPresetsJSON,
   '../../components/animations.json': animationsJSON,
   '../../components/file/dependencies/themes.json': fileThemesJSON,
-  '../../components/input/dependencies/types.json': inputTypesJSON
+  '../../components/input/dependencies/types.json': inputTypesJSON,
+  '../../components/input/dependencies/themes.json': inputThemesJSON
 };
 
 export const CSS_LIBRARY = {
   '../../components/button/dependencies/style/themes.css': buttonThemesCSS,
   '../../components/modal/dependencies/style/themes.css': modalThemesCSS,
-  '../../components/file/dependencies/style/themes.css': fileThemesCSS
+  '../../components/file/dependencies/style/themes.css': fileThemesCSS,
+  '../../components/input/dependencies/style/themes.css': inputThemesCSS
 };

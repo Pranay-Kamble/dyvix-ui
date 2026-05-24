@@ -30,7 +30,21 @@ export async function Validateinput(
 ) {
   let normalizedAnimation = animation?.trim().toLowerCase();
   let normalizedType = type?.trim().toLowerCase();
+  const normalizedTheme =
+    theme?.trim().charAt(0).toUpperCase() + theme.trim().slice(1);
 
+  const isTheme = await ValidatAndLoadJSON(
+    CacheMapping,
+    normalizedTheme,
+    callback,
+    'theme',
+    component,
+    instance
+  );
+
+  if (normalizedAnimation === '!/' && isTheme?.config?.theme) {
+    normalizedAnimation = isTheme?.config?.theme['default-animation'];
+  }
   const [isAnimation, isType] = await Promise.all([
     ValidatAndLoadJSON(
       CacheMapping,
@@ -58,6 +72,12 @@ export async function Validateinput(
     return {
       status: GaurdStatus.Error,
       error: 'Please provide a valid type.'
+    };
+  }
+  if (normalizedTheme !== '!/' && !isTheme.status) {
+    return {
+      status: GaurdStatus.Error,
+      error: 'Please provide a valid theme.'
     };
   }
 
