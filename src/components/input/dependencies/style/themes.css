@@ -18,7 +18,9 @@
 }
 .dyvix-input-lens:focus {
   border-color: #b903e2;
-  box-shadow: 0 0 50px #b903e2, 0 0 0 2px rgba(185, 3, 226, 0.3);
+  box-shadow:
+    0 0 50px #b903e2,
+    0 0 0 2px rgba(185, 3, 226, 0.3);
 }
 .dyvix-input-industrial {
   font-family: 'Geist';
@@ -59,4 +61,48 @@
 }
 .dyvix-input-industrial:disabled::placeholder {
   color: #374151;
+}
+.dyvix-input-ember {
+  border-radius: 10px;
+  background-color: #0f0a08;
+  border: none;
+  border-bottom: #ff4500 3px solid;
+  box-shadow:
+    0px 17px 12px -12px rgba(255, 69, 0, 0.73),
+    0px 0px 30px -10px rgba(255, 69, 0, 0.3);
+  -webkit-box-shadow:
+    0px 17px 12px -12px rgba(255, 69, 0, 0.73),
+    0px 0px 30px -10px rgba(255, 69, 0, 0.3);
+  -moz-box-shadow:
+    0px 17px 12px -12px rgba(255, 69, 0, 0.73),
+    0px 0px 30px -10px rgba(255, 69, 0, 0.3);
+  transition:
+    transform 0.5s ease-in-out,
+    background-color 0.45 ease-in-out,
+    border-color 0.4s ease-in-out,
+    box-shadow 0.3s ease-in-out,
+    -webkit-box-shadow 0.3s ease-in-out,
+    -moz-box-shadow 0.3s ease-in-out;
+}
+.dyvix-input-ember:hover {
+  border: none;
+  border-bottom: #ff6b00 3.1px solid;
+  transform: scale(1.009);
+  box-shadow:
+    0px 17px 20px -12px rgba(255, 69, 0, 0.9),
+    0px 0px 40px -5px rgba(255, 69, 0, 0.5);
+  -webkit-box-shadow:
+    0px 17px 20px -12px rgba(255, 69, 0, 0.9),
+    0px 0px 40px -5px rgba(255, 69, 0, 0.5);
+  -moz-box-shadow:
+    0px 17px 20px -12px rgba(255, 69, 0, 0.9),
+    0px 0px 40px -5px rgba(255, 69, 0, 0.5);
+}
+
+.dyvix-input-ember:focus {
+  border: none;
+  border-bottom-color: #ff8c00;
+  box-shadow:
+    0px 17px 25px -10px rgba(255, 140, 0, 0.95),
+    0px 0px 45px -2px rgba(255, 69, 0, 0.6);
 }
