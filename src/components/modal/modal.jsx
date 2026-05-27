@@ -23,12 +23,13 @@ import {
 import { GaurdStatus } from '../../utils/DyvixGuard';
 import Version from '../../../package.json';
 import DyvixButton from '../button/button';
+import DyvixFile from '../file/file';
 
 export const validType = typesData.map((e) => e.type);
 export const validRules = validationData.map((e) => e.preset);
 
 export const eleData = elementsData;
-const componentsMap = { DynamicSelect: DynamicSelect };
+const componentsMap = { DynamicSelect: DynamicSelect, DyvixFile: DyvixFile};
 
 /**
  * @param {Object} props

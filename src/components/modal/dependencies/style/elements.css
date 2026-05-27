@@ -186,3 +186,27 @@
   min-height: 35px;
   resize: vertical;
 }
+.modal-file {
+  width: 100%;
+  flex: 1;
+  max-width: 15rem;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.grouped-elements:has(.dyvix-file-wrapper) {
+  flex-direction: row;
+  align-items: stretch;
+  width: 80%;
+  max-width: 100%;
+  height: 20px;
+}
+.grouped-elements .dyvix-file-wrapper {
+  flex: 1;
+  max-width: 15rem;
+  min-width: 0;
+  width: 100%;
+}
+.modal-file .dyvix-file-ui p {
+  font-size: 0.5rem;
+}
