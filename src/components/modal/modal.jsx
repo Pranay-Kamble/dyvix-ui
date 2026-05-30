@@ -192,6 +192,11 @@ function Modal({
   };
   if (currentPreset) {
     title = title !== '!/' ? title : currentPreset['default-title'];
+
+    animation =
+      animation !== '!/'
+        ? animation
+        : currentPreset['default-animation'] || 'fade';
   }
   React.useEffect(() => {
     async function GetFields() {
