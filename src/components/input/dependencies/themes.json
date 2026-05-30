@@ -38,5 +38,11 @@
     "theme": "Sunset",
     "class": "dyvix-input-sunset",
     "default-animation": "drop"
+  },
+  {
+    "theme": "Midnight",
+    "class": "dyvix-input-midnight",
+    "default-animation": "drift"
   }
+
 ]
