@@ -20,7 +20,7 @@ import {
   normalizeElements,
   validateElements
 } from './InputValidation';
-import { GaurdStatus } from '../../utils/DyvixGuard';
+import { GuardStatus } from '../../utils/DyvixGuard';
 import Version from '../../../package.json';
 import DyvixButton from '../button/button';
 import DyvixFile from '../file/file';
