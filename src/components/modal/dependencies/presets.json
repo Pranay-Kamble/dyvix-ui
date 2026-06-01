@@ -27,7 +27,7 @@
       }
     ],
     "default-animation": "bubble",
-    "default-theme": "Neon",
+    "default-theme": "Singularity",
     "default-title": "Register"
   },
   {
@@ -50,7 +50,7 @@
       }
     ],
     "default-animation": "fade",
-    "default-theme": "Neon",
+    "default-theme": "Industrial",
     "default-title": "Login"
   },
   {
@@ -66,7 +66,7 @@
       }
     ],
     "default-animation": "aurora",
-    "default-theme": "Neon",
+    "default-theme": "Frost",
     "default-title": "Forgot Password"
   },
   {
@@ -90,7 +90,7 @@
       }
     ],
     "default-animation": "flip",
-    "default-theme": "Neon",
+    "default-theme": "Aurora",
     "default-title": "Reset Password"
   },
   {
@@ -122,7 +122,7 @@
       }
     ],
     "default-animation": "glide",
-    "default-theme": "Neon",
+    "default-theme": "Midnight",
     "default-title": "Change Password"
   }
 ]

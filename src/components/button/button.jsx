@@ -1,6 +1,6 @@
 import React from 'react';
 import './dependencies/style/style.css';
-import { EvaluateFailure, GaurdStatus } from '../../utils/DyvixGuard';
+import { EvaluateFailure, GuardStatus } from '../../utils/DyvixGuard';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { Validatebtn } from './validation';
@@ -49,7 +49,7 @@ function DyvixButton({
         instanceId
       );
 
-      if (validator.status === GaurdStatus.Error) {
+      if (validator.status === GuardStatus.Error) {
         return EvaluateFailure(validator.error, validator.status);
       }
     }
