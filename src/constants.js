@@ -12,7 +12,8 @@ export const DYVIX_GLOBAL_THEME =
   "SUNSET": "Sunset",
   "OCEAN": "Ocean",
   "FOREST": "Forest",
-  "MIDNIGHT": "Midnight"
+  "MIDNIGHT": "Midnight",
+  "CRIMSON": "Crimson"
 }
 export const DYVIX_MODAL_TYPE = 
  {
@@ -31,7 +32,8 @@ export const DYVIX_GLOBAL_ANIMATION =
   "DROP": "drop",
   "FLIP": "flip",
   "GLIDE": "glide",
-  "DRIFT": "drift"
+  "DRIFT": "drift",
+  "FLOAT": "float"
 }
 export const DYVIX_MODAL_VALIDATION_PRESET = 
  {
