@@ -3,8 +3,8 @@ import { DYVIX_GLOBAL_ANIMATION, DYVIX_GLOBAL_THEME } from 'dyvix-ui';
 export function LabelTest() {
   return (
     <>
-      <DyvixLabel htmlFor="hh">Enter your name</DyvixLabel>
-      <DyvixLabel htmlFor="hh">Enter your name</DyvixLabel>
+      <DyvixLabel htmlFor="hh" animation={DYVIX_GLOBAL_ANIMATION.DRIFT}>Enter your name</DyvixLabel>
+      <DyvixLabel htmlFor="hh" animation={DYVIX_GLOBAL_ANIMATION.FLIP}>Enter your name</DyvixLabel>
     </>
   );
 }
