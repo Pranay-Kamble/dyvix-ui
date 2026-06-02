@@ -57,6 +57,6 @@
   {
     "theme": "Crimson",
     "class": "dyvix-file-crimson",
-    "default-animation": "glitch"
+    "default-animation": "float"
   }
 ]
