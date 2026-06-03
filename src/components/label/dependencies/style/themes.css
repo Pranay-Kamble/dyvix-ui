@@ -14,3 +14,16 @@
     0 0 12px #b903e2,
     0 0 30px rgba(185, 3, 226, 0.6);
 }
+.dyvix-label-industrial {
+  font-family: 'Geist';
+  color: #9ca3af;
+  border-bottom: 2px solid #374151;
+  padding-bottom: 2px;
+  transition:
+    color ease-in-out 0.3s,
+    border-color ease-in-out 0.3s;
+}
+.dyvix-label-industrial:hover {
+  color: #6a6a6a;
+  border-bottom-color: #6a6a6a;
+}

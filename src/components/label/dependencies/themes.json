@@ -3,5 +3,10 @@
     "theme": "Singularity",
     "class": "dyvix-label-lens",
     "default-animation": "bubble"
+  },
+  {
+    "theme": "Industrial",
+    "class": "dyvix-label-industrial",
+    "default-animation": "fade"
   }
 ]
