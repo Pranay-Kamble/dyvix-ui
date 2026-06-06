@@ -15,6 +15,11 @@
     "default-animation": "glitch"
   },
   {
+    "theme": "Ocean",
+    "class": "dyvix-label-ocean",
+    "default-animation": "flip"
+  },
+  {
     "theme": "Crimson",
     "class": "dyvix-label-crimson",
     "default-animation": "float"
