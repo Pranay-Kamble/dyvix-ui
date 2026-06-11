@@ -108,7 +108,12 @@ export async function ValidateInput(
     component,
     instance
   );
-  if (theme !== '!/' && isTheme.status && animation === '!/' && preset === '!/') {
+  if (
+    theme !== '!/' &&
+    isTheme.status &&
+    animation === '!/' &&
+    preset === '!/'
+  ) {
     animation = isTheme.config.theme['default-animation'];
   }
   const [isAnimation, isPreset] = await Promise.all([

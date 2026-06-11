@@ -47,7 +47,7 @@ const componentsMap = { DynamicSelect: DynamicSelect, DyvixFile: DyvixFile };
  * @param {Function} [props.onSubmit] - Submit callback
  * @param {Array<Object>} [props.elements] - Array of element configs
  * @param {Object} [props.style] - Inline style overrides
-*/
+ */
 function Modal({
   title = '!/',
   type = `form`,
@@ -166,7 +166,9 @@ function Modal({
   const currentAnimation = configs['animation'];
   const currentPreset = configs['preset'];
   const serilaizedclassName =
-    className + `${currentTheme?.class ? ` ${currentTheme?.class}`: ''}` + ` ${currentType.class}`;
+    className +
+    `${currentTheme?.class ? ` ${currentTheme?.class}` : ''}` +
+    ` ${currentType.class}`;
   // Dynamicily calculate modal sizing and position
   const heightMap = {
     1: '19rem',
@@ -180,29 +182,28 @@ function Modal({
     9: '56rem'
   };
   let idealSize = heightMap[fields?.length] || '26rem';
-  const geometryBuffer = currentTheme?.radiused || !currentTheme
-    ? (2.5 * fields?.length) / 3
-    : 0;
+  const geometryBuffer =
+    currentTheme?.radiused || !currentTheme ? (2.5 * fields?.length) / 3 : 0;
   idealSize = `calc(${idealSize} + ${geometryBuffer}rem)`;
   const isMobile = window.matchMedia('(max-width: 768px)').matches;
   const dynamicHeight = isMobile ? `min(${idealSize}, 95vh)` : idealSize;
   const dynamicWidth = `min(${idealSize}, 95vw, 95vh)`;
   const isCentered = fields?.length <= 5;
   const dynamicMargin = isCentered ? '12vh auto' : '1.5rem auto';
-  
-const defaultStyle = {
-  ...(!currentTheme && { background: background || 'white' }),
-  fontFamily: 'Geist, sans-serif',
-  borderRadius: '2rem'
-};
-const activeStyle = style || defaultStyle;
-const modalStyles = {
-  height: dynamicHeight,
-  width: dynamicWidth,
-  margin: dynamicMargin,
-  transition: 'all 0.3s ease-out',
-  ...activeStyle
-};
+
+  const defaultStyle = {
+    ...(!currentTheme && { background: background || 'white' }),
+    fontFamily: 'Geist, sans-serif',
+    borderRadius: '2rem'
+  };
+  const activeStyle = style || defaultStyle;
+  const modalStyles = {
+    height: dynamicHeight,
+    width: dynamicWidth,
+    margin: dynamicMargin,
+    transition: 'all 0.3s ease-out',
+    ...activeStyle
+  };
   if (currentPreset) {
     title = title !== '!/' ? title : currentPreset['default-title'];
     animation =

@@ -45,7 +45,7 @@ export function ModalTest() {
       Id="register-modal"
       className="modalsss"
       //background="red"
-       theme={'Crimson'}
+      theme={'Crimson'}
       //background={'Red'}
       //  preset={'ResetPassword'}
       type="auth"

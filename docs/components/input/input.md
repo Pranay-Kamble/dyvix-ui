@@ -53,7 +53,11 @@ A config-driven animated input component with support for themed and default col
 ## Example
 
 ```jsx
-import { DyvixInput, DYVIX_GLOBAL_ANIMATION, DYVIX_GLOBAL_THEME } from 'dyvix-ui';
+import {
+  DyvixInput,
+  DYVIX_GLOBAL_ANIMATION,
+  DYVIX_GLOBAL_THEME
+} from 'dyvix-ui';
 function InputExample() {
   return (
     <DyvixInput

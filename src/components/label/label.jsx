@@ -13,9 +13,9 @@ import Version from '../../../package.json';
  * @param {string} [props.animation] - Animation name
  * @param {('Singularity'|'Industrial'|'Ember'|'Frost'|'Blade'|'Neon'|'Aurora'|'Sunset'|'Crimson'|'Midnight'|'Forest')} [props.theme] - Label theme
  * @param {string} [props.background] - Label background color
- * @param {string} [props.color] - Label color 
+ * @param {string} [props.color] - Label color
  * @param {Object} [props.style] - Inline styles overrides
-*/
+ */
 function DyvixLabel({
   children,
   className = '',
@@ -71,8 +71,8 @@ function DyvixLabel({
     className: className,
     ...(htmlFor && { htmlFor: htmlFor }),
     style: {
-      ...(background && {background: background}),
-      ...(color && {color: color}),
+      ...(background && { background: background }),
+      ...(color && { color: color }),
       ...style
     }
   };
