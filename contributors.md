@@ -26,3 +26,4 @@ Thanks for everyone who has contributed to Dyvix UI!
 - [@skyswordw](https://github.com/skyswordw)
 - [@promptpolish-ai](https://github.com/promptpolish-ai)
 - [@behnamnba1900-art](https://github.com/behnamnba1900-art)
+- [@daveranola](https://github.com/daveranola)
