@@ -66,10 +66,16 @@ export async function ValidateTable(
     if (!Array.isArray(data)) {
       return {
         status: GuardStatus.Error,
+        error:
+          'data prop must be a valid array of objects of keys from column prop.'
+      };
+    }
+    if (data.length === 0) {
+      return {
+        status: GuardStatus.Error,
         error: 'data prop cannot be empty.'
       };
     }
-
     const hasNullRow = data.some(
       (row) => row === null || typeof row !== 'object'
     );
