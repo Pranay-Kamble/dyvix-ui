@@ -15,6 +15,7 @@ function DyvixTable({
   className = '',
   animation = 'fade',
   background,
+  color,
   columns,
   data,
   style,
@@ -28,6 +29,7 @@ function DyvixTable({
     className: tableClasses,
     style: {
       ...(background && { background: background }),
+      ...(color && { color: color }),
       ...style
     }
   };
