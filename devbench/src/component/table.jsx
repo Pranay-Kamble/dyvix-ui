@@ -12,7 +12,7 @@ export function TableTest() {
     <>
        <DyvixTable
         animation={DYVIX_GLOBAL_ANIMATION.DRIFT}
-        theme={DYVIX_GLOBAL_THEME.SINGULARITY}
+        theme={DYVIX_GLOBAL_THEME.CRIMSON}
         columns={[
           { key: 'id', label: 'ID' },
           { key: 'name', label: 'Name' },
