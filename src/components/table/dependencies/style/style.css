@@ -61,6 +61,14 @@ table[style*='color'] td {
 .dyvix-table tbody tr:last-child td:last-child {
   border-bottom-right-radius: 21px;
 }
+.dyvix-table-sort-icon {
+  min-width: 16px;
+  max-width: 16px;
+}
+.table-sortable {
+  cursor: pointer;
+  user-select: none;
+}
 @media (max-width: 640px) {
   .dyvix-table-wrapper {
     overflow-x: auto;
